@@ -7,9 +7,9 @@
            
             .show {
             
-                width : 200px;
+                width : 1000px;
                 height : 200px;
-                font-size : 20px;
+                font-size : 40px;
                 
                 display: inline-block;
 				position: relative;
@@ -25,15 +25,18 @@
 		
 		
 		<script>	
-				 document.onmousemove=function(ev){
-				        var oEvent=ev||event;
-				        var oDiv=document.getElementById('text');
-				        var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
-				        var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
-				        oDiv.style.left=oEvent.clientX+scrollLeft - 100 +'px';
-				        oDiv.style.top=oEvent.clientY+scrollTop - 20 +'px';
-				
-				    }
+			var oDiv=document.getElementById('text');
+			document.onmousemove=function(ev){
+				var oEvent=ev||event;
+				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+				var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+				oDiv.style.left=oEvent.clientX+scrollLeft - 300 +'px';
+				oDiv.style.top=oEvent.clientY+scrollTop - 20 +'px';				
+			}
+			
+			setInterval(function(){
+				oDiv.style.color = 'rgb(' + Math.random() * 100 + ', ' + Math.random() * 100+ ',' + Math.random() * 100+ ')';
+			}, 500);
 					
 		    
 		</script>
