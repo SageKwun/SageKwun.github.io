@@ -24,8 +24,12 @@
         </div>
 		
 		
-		<script>	
+		<script>
+			var name = prompt("你的名字是？");
 			var oDiv=document.getElementById('text');
+			
+			name = (name == "管善鑫")?"你":name;
+			oDiv.innerText = name + "不太行啊哈哈哈哈哈哈";
 			document.onmousemove=function(ev){
 				var oEvent=ev||event;
 				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
