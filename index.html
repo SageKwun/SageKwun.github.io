@@ -1,50 +1,83 @@
-<html>
-    <head>
-        <title>SageKwun</title>
-        <link rel="stylesheet" href="payment-form.css">
-        
-        <style>
-           
-            .show {
-            
-                width : 1000px;
-                height : 200px;
-                font-size : 40px;
-                
-                display: inline-block;
-				position: relative;
-            }
-        </style>
-        
-    </head>
-    <body>
+<!-- base on code from UPer 亚热带的风 in bilibili -->
+	<!DOCTYPE html>
+	<html lang="en">
+	
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>最喜欢二二啦！</title>
+	    <style>
+	        * {
+	            margin: 0;
+	            padding: 0;
+	        }
+	
+	        body {
+	            background: pink;
+	        }
+	
+	        .box {
+	            width: 120px;
+	            height: 120px;
+	            background: #ff0000;
+	            margin: 200px auto;
+	            margin-bottom: 80px;
+	            /* 盒子旋转45度 */
+	            transform: rotate(45deg) scale(0.9);
+	            /* 绑定动画 */
+	            animation: change 1s infinite;
+	            box-shadow: 0 0 30px 5px rgba(255, 0, 0, 0.7);
+	        }
+	
+	        .box::after,
+	        .box::before {
+	            content: "";
+	            position: absolute;
+	            width: 120px;
+	            height: 120px;
+	            background: #ff0000;
+	            border-radius: 50%;
+	            box-shadow: 0 0 30px 5px rgba(255, 0, 0, 0.7);
+	        }
+	
+	        .box::after {
+	            left: -68px;
+	        }
+	
+	        .box::before {
+	            top: -68px;
+	        }
+	
+	        /* 创建动画 */
+	        @keyframes change {
+	            0% {
+	                transform: rotate(45deg) scale(0.85);
+	            }
+	
+	            50% {
+	                transform: rotate(45deg) scale(1);
+	            }
+	
+	            100% {
+	                transform: rotate(45deg) scale(0.85);
+	            }
+	        }
+	
+	        p {
+	            text-align: center;
+	            font-size: 30px;
+	            font-weight: 520;
+	            color: rgba(255, 0, 0, 0.5);
+	            /* 文字阴影 */
+	            text-shadow: 0 0 2px rgba(255, 0, 0, 0.5);
+	        }
+	    </style>
+	</head>
+	
+	<body>
+	    <div class="box"></div>
+	    <p>you are the only the here</p>
+	</body>
+	
+	</html>
 
-        <div class = "show" id="text">
-            小伙子不太行啊哈哈哈哈哈哈
-        </div>
-		
-		
-		<script>
-			var name = prompt("你的名字是？");
-			var oDiv=document.getElementById('text');
-			
-			name = (name == "管善鑫")?"你":name;
-			oDiv.innerText = name + "不太行啊哈哈哈哈哈哈";
-			document.onmousemove=function(ev){
-				var oEvent=ev||event;
-				var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
-				var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
-				oDiv.style.left=oEvent.clientX+scrollLeft - 300 +'px';
-				oDiv.style.top=oEvent.clientY+scrollTop - 20 +'px';				
-			}
-			
-			setInterval(function(){
-				oDiv.style.color = 'rgb(' + Math.random() * 100 + ', ' + Math.random() * 100+ ',' + Math.random() * 100+ ')';
-			}, 500);
-					
-		    
-		</script>
-		
-		
-    </body>
-</html>
