@@ -1,104 +1,55 @@
-<!-- base on code from UPer 亚热带的风 in bilibili -->
-	<!DOCTYPE html>
-	<html lang="en">
-	
-	<head>
-	    <meta charset="UTF-8">
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>520</title>
-	    <style>
-	        * {
-	            margin: 0;
-	            padding: 0;
-	        }
-	
-	        body {
-	            background: pink;
-	        }
-	
-	        .box {
-	            width: 120px;
-	            height: 120px;
-	            background: #ff0000;
-	            margin: 200px auto;
-	            margin-bottom: 80px;
-	            /* 盒子旋转45度 */
-	            transform: rotate(45deg) scale(0.9);
-	            /* 绑定动画 */
-	            animation: change 1s infinite;
-	            box-shadow: 0 0 30px 5px rgba(255, 0, 0, 0.7);
-	        }
-	
-	        .box::after,
-	        .box::before {
-	            content: "";
-	            position: absolute;
-	            width: 120px;
-	            height: 120px;
-	            background: #ff0000;
-	            border-radius: 50%;
-	            box-shadow: 0 0 30px 5px rgba(255, 0, 0, 0.7);
-	        }
-	
-	        .box::after {
-	            left: -68px;
-	        }
-	
-	        .box::before {
-	            top: -68px;
-	        }
-	
-	        /* 创建动画 */
-	        @keyframes change {
-	            0% {
-	                transform: rotate(45deg) scale(0.85);
-	            }
-	
-	            50% {
-	                transform: rotate(45deg) scale(1);
-	            }
-	
-	            100% {
-	                transform: rotate(45deg) scale(0.85);
-	            }
-	        }
-
-            .content {
-                margin:auto;
-
-                width: 500px;
-                height: 100px;
-            }   
-	
-	        #only {
-	            /* text-align: center; */
-	            font-size: 30px;
-	            font-weight: 520;
-	            color: rgba(255, 0, 0, 0.5);
-                text-indent: 2em;
-	            /* 文字阴影 */
-	            text-shadow: 0 0 2px rgba(255, 0, 0, 0.5);
-	        }
-
-            #to {
-                /* text-align: left; */
-                font-size: 30px;
-                font-weight: 520;
-                color: rgba(255, 0, 0, 0.5);
-	            /* 文字阴影 */
-	            text-shadow: 0 0 2px rgba(255, 0, 0, 0.5);
+<html>
+    <head>
+        <title>表格</title>
+        <meta charset="utf-8">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <!-- import stylesheet -->
+        <link rel="stylesheet" href="https://unpkg.com/view-design@4.5.0/dist/styles/iview.css">
+        <!-- import iView -->
+        <script src="https://unpkg.com/view-design@4.5.0/dist/iview.min.js"></script>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
             }
-	    </style>
-	</head>
-	
-	<body>
-	    <div class="box"></div>
-        <div class="content">
-            <p id="to">To 二二:</p>
-	        <p id="only">you are the only the here</p>
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <i-form :model="formItem" :label-width="80" style="width: 500px;margin:auto;margin-top: 100px;">
+                <form-item label="姓名">
+                    <i-input v-model="formItem.name" placeholder="请输入您的姓名"></Input>
+                </form-item>
+                <form-item label="学号">
+                    <i-input v-model="formItem.id" placeholder="请输入您的学号"></Input>
+                </form-item>
+                <form-item>
+                    <i-button type="success" long @click="success('success')">提交</i-button>
+                </form-item>
+
+            </i-form>
         </div>
         
-	</body>
-	
-	</html>
+        <script>
+            let vm = new Vue({
+                el: "#app",
+                data: {
+                    formItem: {
+                        name: '',
+                        id: '',
+                    },
+                },
+                methods: {
+                    success(type) {
+                        this.$Message[type]({
+                            background: true,
+                            content: '刘亚男不太行',
+                        })
+                    },
+                },
+            })
+        </script>
 
+        
+    </body>
+</html>
